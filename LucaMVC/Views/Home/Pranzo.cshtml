@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Pranzo";
+}
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+
+@if (ViewBag.p_primo != null && ViewBag.p_secondo != null && ViewBag.p_contorno != null && ViewBag.p_dolce != null) {
+<ul class="list-group">
+    <li class="list-group-item">
+        <b>Data</b>       @ViewBag.p_data
+    </li>
+    <li class="list-group-item">
+        <b>primo</b> @ViewBag.p_primo
+    </li>
+    <li class="list-group-item">
+        <b>secondo</b>  @ViewBag.p_secondo
+    </li>
+    <li class="list-group-item">
+        <b>contorno</b> @ViewBag.p_contorno
+    </li>
+    <li class="list-group-item">
+        <b>dolce</b> @ViewBag.p_dolce
+    </li>
+</ul>
+}
+
+
+@using (Html.BeginForm("Pranzo", "Home", FormMethod.Post)) {
+<div>
+    <b>Data</b>      @Html.TextBox("date")<br /> <br />
+    <b>Primo</b>      @Html.TextBox("primo") <br /> <br />
+    <b>Secondo</b> @Html.TextBox("secondo")<br /> <br />
+    <b>Contorno</b>      @Html.TextBox("contorno") <br /> <br />
+    <b>Dolce</b> @Html.TextBox("dolce")<br /> <br />
+    <input type="submit" value="Aggiungi" />
+</div>
+}
