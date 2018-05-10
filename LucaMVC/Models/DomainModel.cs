@@ -8,5 +8,9 @@ namespace LucaMVC.Models {
 		public void AddPasto(DateTime date, string pasto, string primo, string secondo, string contorno, string dolce) {
 			
 		}
+
+		public void Giornata(DateTime date) {
+
+		}
 	}
 }

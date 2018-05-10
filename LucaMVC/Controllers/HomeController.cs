@@ -41,5 +41,24 @@ namespace LucaMVC.Controllers {
 			dm.AddPasto(date, pasto, primo, secondo, contorno, dolce);
 			return View("Pasto");
 		}
+				
+		public ActionResult Giorno() {
+			ViewBag.Message = $"Inserisci {DateTime.Today.ToString("dd/MM/yyyy")}";			
+			ViewBag.data = DateTime.Today.ToString("dd/MM/yyyy");
+
+			ViewBag.p_primo = "pasta";
+			ViewBag.p_secondo = "carne";
+			ViewBag.p_contorno = "pomodori";
+			ViewBag.p_dolce = "frutta";
+
+			ViewBag.c_primo = "minestra";
+			ViewBag.c_secondo = "pesce";
+			ViewBag.c_contorno = "fagiolini";
+			ViewBag.c_dolce = "budino";
+
+			DomainModel dm = new DomainModel();
+			dm.Giornata(DateTime.Today);
+			return View("Giorno");
+		}
 	}
 }
