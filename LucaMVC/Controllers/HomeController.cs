@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using LucaMVC.Models;
 
 namespace LucaMVC.Controllers {
 	public class HomeController : Controller {
@@ -36,6 +37,8 @@ namespace LucaMVC.Controllers {
 			ViewBag.secondo = secondo;
 			ViewBag.contorno = contorno;
 			ViewBag.dolce = dolce;
+			DomainModel dm = new DomainModel();
+			dm.AddPasto(date, pasto, primo, secondo, contorno, dolce);
 			return View("Pasto");
 		}
 	}
