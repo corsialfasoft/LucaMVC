@@ -22,37 +22,21 @@ namespace LucaMVC.Controllers {
 			return View();
 		}
 
-		public ActionResult Pranzo() {
-			ViewBag.Message = "Inserisci il pranzo";
-			return View("Pranzo");
+		public ActionResult Pasto() {
+			ViewBag.Message = "Inserisci il menù pranzo/cena";
+			return View("Pasto");
 		}
 
 		[HttpPost]
-		public ActionResult Pranzo(DateTime date, string primo, string secondo, string contorno, string dolce) {
-			ViewBag.Message = "Inserisci il pranzo";
-			@ViewBag.p_data = date;
-			ViewBag.p_primo = primo ;
-			ViewBag.p_secondo = secondo;
-			ViewBag.p_contorno = contorno;
-			ViewBag.p_dolce = dolce;
-			return View("Pranzo");
+		public ActionResult Pasto(DateTime date, string pasto, string primo, string secondo, string contorno, string dolce) {
+			ViewBag.Message = $"Inserisci il {pasto}";
+			ViewBag.data = date;
+			ViewBag.pasto = pasto;
+			ViewBag.primo = primo ;
+			ViewBag.secondo = secondo;
+			ViewBag.contorno = contorno;
+			ViewBag.dolce = dolce;
+			return View("Pasto");
 		}
-
-		public ActionResult Cena() {
-			ViewBag.Message = "Inserisci il pranzo";
-			return View("Cena");
-		}
-
-		[HttpPost]
-		public ActionResult Cena(DateTime date, string primo, string secondo, string contorno, string dolce) {
-			ViewBag.Message = "Inserisci la cena";
-			@ViewBag.c_data = date;
-			ViewBag.c_primo = primo;
-			ViewBag.c_secondo = secondo;
-			ViewBag.c_contorno = contorno;
-			ViewBag.c_dolce = dolce;
-			return View("Cena");
-		}
-
 	}
 }
