@@ -53,7 +53,7 @@ namespace LucaMVC.Controllers {
 
 		[HttpPost]
 		public ActionResult Pasto(DateTime date, string pasto, string primo, string secondo, string contorno, string dolce) {
-			ViewBag.Message = $"Inserisci il {pasto}";
+			ViewBag.Message = $"Hai inserito il seguente menù";
 			ViewBag.data = date;
 			ViewBag.pasto = pasto;
 			ViewBag.primo = primo ;
