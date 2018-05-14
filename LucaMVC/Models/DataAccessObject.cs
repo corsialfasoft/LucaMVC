@@ -136,52 +136,64 @@ namespace DataAccessObject {
 		}
 	}
 
-	public class Settimana{
-		private DateTime _dataInizio;
-		private DateTime _dataFine;
-		private Giorno _lunedi;
-		private Giorno _martedi;
-		private Giorno _mercoledi;
-		private Giorno _giovedi;
-		private Giorno _venerdi;
-		private Giorno _sabato;
-		private Giorno _domenica;
+	//public class Settimana{
+	//	private DateTime _dataInizio;
+	//	private DateTime _dataFine;
+	//	private Giorno _lunedi;
+	//	private Giorno _martedi;
+	//	private Giorno _mercoledi;
+	//	private Giorno _giovedi;
+	//	private Giorno _venerdi;
+	//	private Giorno _sabato;
+	//	private Giorno _domenica;
 
-		public DateTime DataInizio{
-			get { return _dataInizio; }
-		}
+	//	public DateTime DataInizio{
+	//		get { return _dataInizio; }
+	//	}
 
-		public DateTime DataFine {
-			get { return _dataFine; }
-		}
+	//	public DateTime DataFine {
+	//		get { return _dataFine; }
+	//	}
 
-		public Giorno Lunedi{
-			get { return _lunedi; }
-		}
+	//	public Giorno Lunedi{
+	//		get { return _lunedi; }
+	//	}
 
-		public Giorno Martedi {
-			get { return _martedi; }
-		}
+	//	public Giorno Martedi {
+	//		get { return _martedi; }
+	//	}
 
-		public Giorno Mercoledi {
-			get { return _mercoledi; }
-		}
+	//	public Giorno Mercoledi {
+	//		get { return _mercoledi; }
+	//	}
 
-		public Giorno Giovedi {
-			get { return _giovedi; }
-		}
+	//	public Giorno Giovedi {
+	//		get { return _giovedi; }
+	//	}
 
-		public Giorno Venerdi {
-			get { return _venerdi; }
-		}
+	//	public Giorno Venerdi {
+	//		get { return _venerdi; }
+	//	}
 
-		public Giorno Sabato {
-			get { return _sabato; }
-		}
+	//	public Giorno Sabato {
+	//		get { return _sabato; }
+	//	}
 
-		public Giorno Domenica {
-			get { return _domenica; }
-		}
+	//	public Giorno Domenica {
+	//		get { return _domenica; }
+	//	}
 
-	}
+	//	public Settimana ( DateTime i, DateTime f, Giorno lunedi, Giorno martedi, Giorno mercoledi, Giorno giovedi, Giorno _venerdi, Giorno sabato, Giorno domenica) {
+	//		bool l, ma, me, g, v, s, d;
+	//		l = CheckData (lunedi, i, f);
+	//		ma = CheckData(martedi, i, f);
+	//		me = CheckData(mercoledi, i, f);
+			
+
+	//	}
+
+	//	private bool CheckData (Giorno g, DateTime i, DateTime f) {
+	//		return (g.Data.Date >= i.Date && g.Data.Date <= f.Date);
+	//	}
+	//}
 }
