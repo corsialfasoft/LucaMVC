@@ -112,7 +112,7 @@ namespace DataAccessObject {
 			get { return _cena; }
 		}
 
-		public Giorno ( int tGiorno , Pasto pranzo , Pasto cena ) {
+		public Giorno ( DateTime d, int tGiorno , Pasto pranzo , Pasto cena ) {
 			try{
 				if ( tGiorno >= 1 && tGiorno <= 7) {
 					_tGiorno = (Giornata) tGiorno ;
@@ -130,6 +130,7 @@ namespace DataAccessObject {
 				} else {
 					throw new Exception("Inserimento di pasto/i 'NULL' nella creazione del giorno");
 				}
+				_data = d;
 			} catch ( Exception e ) {
 				throw e;
 			}
