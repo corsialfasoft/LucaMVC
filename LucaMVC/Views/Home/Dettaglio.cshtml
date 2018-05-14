@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Dettaglio";
+}
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+
+@if (ViewBag.data != null && ViewBag.pasto != null && ViewBag.p_primo != null && ViewBag.p_secondo != null && ViewBag.p_contorno != null && ViewBag.p_dolce != null) {
+    <ul class="list-group">
+        <li class="list-group-item">
+            <b>Data</b>       @ViewBag.data
+        </li>
+        <br />
+        <li class="list-group-item">
+            <b>Tipologia pasto: </b>    @ViewBag.pasto
+        </li>
+        <br />
+        <li class="list-group-item">
+            <b>primo</b> @ViewBag.p_primo
+        </li>
+        <br />
+        <li class="list-group-item">
+            <b>secondo</b>  @ViewBag.p_secondo
+        </li>
+        <br />
+        <li class="list-group-item">
+            <b>contorno</b> @ViewBag.p_contorno
+        </li>
+        <br />
+        <li class="list-group-item">
+            <b>dolce</b> @ViewBag.p_dolce
+        </li>
+        <br />
+    </ul>
+} else {
+    <ul class="list-group">
+        <li class="list-group-item">
+            <b>Data</b>       @ViewBag.data
+        </li>
+        <br />
+        <li class="list-group-item">
+            <b>Tipologia pasto: </b>    @ViewBag.pasto
+        </li>
+        <br />
+        <li class="list-group-item">
+            <b>primo</b> @ViewBag.c_primo
+        </li>
+        <br />
+        <li class="list-group-item">
+            <b>secondo</b>  @ViewBag.c_secondo
+        </li>
+        <br />
+        <li class="list-group-item">
+            <b>contorno</b> @ViewBag.c_contorno
+        </li>
+        <br />
+        <li class="list-group-item">
+            <b>dolce</b> @ViewBag.c_dolce
+        </li>
+        <br />
+    </ul>
+}
+    <li class="list-group-item">
+        <a class="btn btn-default" type="button" href="~/Home/Giorno">Indietro</a>
+    </li>

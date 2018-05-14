@@ -23,6 +23,29 @@ namespace LucaMVC.Controllers {
 			return View();
 		}
 
+		public ActionResult Dettaglio(int i) {
+			if ( i == 1 ) {
+				ViewBag.data = DateTime.Today.ToString("dd/MM/yyyy");
+				ViewBag.pasto = "pranzo";
+				ViewBag.Message = "Dettagli del pranzo";
+				ViewBag.p_primo = "pasta";
+				ViewBag.p_secondo = "carne";
+				ViewBag.p_contorno = "pomodori";
+				ViewBag.p_dolce = "frutta";
+				return View("Dettaglio");
+			} else if (i == 2) {
+				ViewBag.data = DateTime.Today.ToString("dd/MM/yyyy");
+				ViewBag.pasto = "cena";
+				ViewBag.Message = "Dettagli della cena";
+				ViewBag.c_primo = "minestra";
+				ViewBag.c_secondo = "pesce";
+				ViewBag.c_contorno = "fagiolini";
+				ViewBag.c_dolce = "budino";
+				return View("Dettaglio");
+			}
+			return View("Dettaglio");
+		}
+				
 		public ActionResult Pasto() {
 			ViewBag.Message = "Inserisci il menù pranzo/cena";
 			return View("Pasto");
@@ -43,7 +66,7 @@ namespace LucaMVC.Controllers {
 		}
 				
 		public ActionResult Giorno() {
-			ViewBag.Message = $"Inserisci {DateTime.Today.ToString("dd/MM/yyyy")}";			
+			ViewBag.Message = $"Riferimenti ai dettagli di pranzo e cena";			
 			ViewBag.data = DateTime.Today.ToString("dd/MM/yyyy");
 
 			ViewBag.p_primo = "pasta";

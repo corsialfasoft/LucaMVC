@@ -190,6 +190,7 @@
     <Content Include="Views\Home\Pasto.cshtml" />
     <Content Include="Views\Home\Giorno.cshtml" />
     <Content Include="Views\Home\Settimana.cshtml" />
+    <Content Include="Views\Home\Dettaglio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

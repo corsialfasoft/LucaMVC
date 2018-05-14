@@ -7,7 +7,7 @@
 @if (ViewBag.data != null && ViewBag.pasto != null && ViewBag.primo != null && ViewBag.secondo != null && ViewBag.contorno != null && ViewBag.dolce != null) {
 <ul class="list-group">    
     <li class="list-group-item">
-        <b>tipo pranzo/cena: </b>       @ViewBag.pasto
+        <b>tipo (pranzo/cena): </b>       @ViewBag.pasto
     </li>
     <li class="list-group-item">
         <b>primo</b> @ViewBag.primo
@@ -28,7 +28,7 @@
 @using (Html.BeginForm("Pasto", "Home", FormMethod.Post)) {
 <div>
     <b>Data</b>      @Html.TextBox("date")<br /> <br />
-    <b>Tipo pranzo/cena:</b>      @Html.TextBox("pasto")<br /> <br />
+    <b>Tipo (pranzo/cena):</b>      @Html.TextBox("pasto")<br /> <br />
     <b>Primo</b>      @Html.TextBox("primo") <br /> <br />
     <b>Secondo</b> @Html.TextBox("secondo")<br /> <br />
     <b>Contorno</b>      @Html.TextBox("contorno") <br /> <br />
