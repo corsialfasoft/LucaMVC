@@ -12,11 +12,21 @@ namespace DataAccessObject {
 	public enum TipoPasto { pranzo, cena };
 
 	public class Piatto{
+		private int _id;
 		private TipoPiatto _type;
+		private string _nomePiatto;
 		private string _descrizione;
+
+		public int Id{
+			get { return _id; }
+		}
 
 		public TipoPiatto Type{
 			get { return _type; }
+		}
+
+		public string NomePiatto {
+			get { return _nomePiatto; }
 		}
 
 		public string Descrizione {
@@ -34,12 +44,17 @@ namespace DataAccessObject {
 	}
 
 	public class Menu {
+		private int _id;
 		private DateTime _dataMenu;
 		private TipoPasto _tipoPasto;	//Pranzo o cena
 		private List<Piatto> _primo = new List<Piatto>();
 		private List<Piatto> _secondo = new List<Piatto>();
 		private List<Piatto> _contorno = new List<Piatto>();
 		private List<Piatto> _dolce = new List<Piatto>();
+
+		public int Id {
+			get { return _id; }
+		}
 
 		public DateTime DataMenu {
 			get { return _dataMenu; }
@@ -96,11 +111,16 @@ namespace DataAccessObject {
 		}
 	}
 
-	public class Giorno{
+	public class Giorno {
+		private int _id;
 		private DateTime _dataG;
 		private Giornata _tGiorno;
 		private Menu _pranzo;
 		private Menu _cena;
+
+		public int Id {
+			get { return _id; }
+		}
 
 		public DateTime DataG{
 			get { return _dataG; }

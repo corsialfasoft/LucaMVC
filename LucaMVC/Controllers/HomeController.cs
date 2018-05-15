@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using LucaMVC.Models;
+using DataTransferObjects;
 
 namespace LucaMVC.Controllers {
 	public class HomeController : Controller {
