@@ -11,7 +11,6 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nome" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="descrizione" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="Dolce">
           <Key>
@@ -19,7 +18,6 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nome" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="descrizione" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="Menu">
           <Key>
@@ -39,7 +37,6 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nome" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="descrizione" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="Secondo">
           <Key>
@@ -47,9 +44,8 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nome" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="descrizione" Type="nvarchar" MaxLength="200" />
         </EntityType>
-        <Association Name="FK__Menu__contorno__32E0915F">
+        <Association Name="FK__Menu__contorno__2D27B809">
           <End Role="Contorno" Type="Self.Contorno" Multiplicity="0..1" />
           <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -61,7 +57,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Menu__dolce__33D4B598">
+        <Association Name="FK__Menu__dolce__2E1BDC42">
           <End Role="Dolce" Type="Self.Dolce" Multiplicity="0..1" />
           <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -73,7 +69,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Menu__primo__30F848ED">
+        <Association Name="FK__Menu__primo__2B3F6F97">
           <End Role="Primo" Type="Self.Primo" Multiplicity="0..1" />
           <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -85,7 +81,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Menu__secondo__31EC6D26">
+        <Association Name="FK__Menu__secondo__2C3393D0">
           <End Role="Secondo" Type="Self.Secondo" Multiplicity="0..1" />
           <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -103,19 +99,19 @@
           <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Primo" EntityType="Self.Primo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Secondo" EntityType="Self.Secondo" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Menu__contorno__32E0915F" Association="Self.FK__Menu__contorno__32E0915F">
+          <AssociationSet Name="FK__Menu__contorno__2D27B809" Association="Self.FK__Menu__contorno__2D27B809">
             <End Role="Contorno" EntitySet="Contorno" />
             <End Role="Menu" EntitySet="Menu" />
           </AssociationSet>
-          <AssociationSet Name="FK__Menu__dolce__33D4B598" Association="Self.FK__Menu__dolce__33D4B598">
+          <AssociationSet Name="FK__Menu__dolce__2E1BDC42" Association="Self.FK__Menu__dolce__2E1BDC42">
             <End Role="Dolce" EntitySet="Dolce" />
             <End Role="Menu" EntitySet="Menu" />
           </AssociationSet>
-          <AssociationSet Name="FK__Menu__primo__30F848ED" Association="Self.FK__Menu__primo__30F848ED">
+          <AssociationSet Name="FK__Menu__primo__2B3F6F97" Association="Self.FK__Menu__primo__2B3F6F97">
             <End Role="Primo" EntitySet="Primo" />
             <End Role="Menu" EntitySet="Menu" />
           </AssociationSet>
-          <AssociationSet Name="FK__Menu__secondo__31EC6D26" Association="Self.FK__Menu__secondo__31EC6D26">
+          <AssociationSet Name="FK__Menu__secondo__2C3393D0" Association="Self.FK__Menu__secondo__2C3393D0">
             <End Role="Secondo" EntitySet="Secondo" />
             <End Role="Menu" EntitySet="Menu" />
           </AssociationSet>
@@ -131,8 +127,7 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nome" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="descrizione" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Menu" Relationship="Self.FK__Menu__contorno__32E0915F" FromRole="Contorno" ToRole="Menu" />
+          <NavigationProperty Name="Menu" Relationship="Self.FK__Menu__contorno__2D27B809" FromRole="Contorno" ToRole="Menu" />
         </EntityType>
         <EntityType Name="Dolce">
           <Key>
@@ -140,8 +135,7 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nome" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="descrizione" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Menu" Relationship="Self.FK__Menu__dolce__33D4B598" FromRole="Dolce" ToRole="Menu" />
+          <NavigationProperty Name="Menu" Relationship="Self.FK__Menu__dolce__2E1BDC42" FromRole="Dolce" ToRole="Menu" />
         </EntityType>
         <EntityType Name="Menu">
           <Key>
@@ -154,10 +148,10 @@
           <Property Name="secondo" Type="Int32" />
           <Property Name="contorno" Type="Int32" />
           <Property Name="dolce" Type="Int32" />
-          <NavigationProperty Name="Contorno1" Relationship="Self.FK__Menu__contorno__32E0915F" FromRole="Menu" ToRole="Contorno" />
-          <NavigationProperty Name="Dolce1" Relationship="Self.FK__Menu__dolce__33D4B598" FromRole="Menu" ToRole="Dolce" />
-          <NavigationProperty Name="Primo1" Relationship="Self.FK__Menu__primo__30F848ED" FromRole="Menu" ToRole="Primo" />
-          <NavigationProperty Name="Secondo1" Relationship="Self.FK__Menu__secondo__31EC6D26" FromRole="Menu" ToRole="Secondo" />
+          <NavigationProperty Name="Contorno1" Relationship="Self.FK__Menu__contorno__2D27B809" FromRole="Menu" ToRole="Contorno" />
+          <NavigationProperty Name="Dolce1" Relationship="Self.FK__Menu__dolce__2E1BDC42" FromRole="Menu" ToRole="Dolce" />
+          <NavigationProperty Name="Primo1" Relationship="Self.FK__Menu__primo__2B3F6F97" FromRole="Menu" ToRole="Primo" />
+          <NavigationProperty Name="Secondo1" Relationship="Self.FK__Menu__secondo__2C3393D0" FromRole="Menu" ToRole="Secondo" />
         </EntityType>
         <EntityType Name="Primo">
           <Key>
@@ -165,8 +159,7 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nome" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="descrizione" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Menu" Relationship="Self.FK__Menu__primo__30F848ED" FromRole="Primo" ToRole="Menu" />
+          <NavigationProperty Name="Menu" Relationship="Self.FK__Menu__primo__2B3F6F97" FromRole="Primo" ToRole="Menu" />
         </EntityType>
         <EntityType Name="Secondo">
           <Key>
@@ -174,10 +167,9 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nome" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="descrizione" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Menu" Relationship="Self.FK__Menu__secondo__31EC6D26" FromRole="Secondo" ToRole="Menu" />
+          <NavigationProperty Name="Menu" Relationship="Self.FK__Menu__secondo__2C3393D0" FromRole="Secondo" ToRole="Menu" />
         </EntityType>
-        <Association Name="FK__Menu__contorno__32E0915F">
+        <Association Name="FK__Menu__contorno__2D27B809">
           <End Role="Contorno" Type="Self.Contorno" Multiplicity="0..1" />
           <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -189,7 +181,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Menu__dolce__33D4B598">
+        <Association Name="FK__Menu__dolce__2E1BDC42">
           <End Role="Dolce" Type="Self.Dolce" Multiplicity="0..1" />
           <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -201,7 +193,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Menu__primo__30F848ED">
+        <Association Name="FK__Menu__primo__2B3F6F97">
           <End Role="Primo" Type="Self.Primo" Multiplicity="0..1" />
           <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -213,7 +205,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Menu__secondo__31EC6D26">
+        <Association Name="FK__Menu__secondo__2C3393D0">
           <End Role="Secondo" Type="Self.Secondo" Multiplicity="0..1" />
           <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
           <ReferentialConstraint>
@@ -225,25 +217,25 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="RistoranteEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="RistoranteEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Contorno" EntityType="Self.Contorno" />
           <EntitySet Name="Dolce" EntityType="Self.Dolce" />
           <EntitySet Name="Menu" EntityType="Self.Menu" />
           <EntitySet Name="Primo" EntityType="Self.Primo" />
           <EntitySet Name="Secondo" EntityType="Self.Secondo" />
-          <AssociationSet Name="FK__Menu__contorno__32E0915F" Association="Self.FK__Menu__contorno__32E0915F">
+          <AssociationSet Name="FK__Menu__contorno__2D27B809" Association="Self.FK__Menu__contorno__2D27B809">
             <End Role="Contorno" EntitySet="Contorno" />
             <End Role="Menu" EntitySet="Menu" />
           </AssociationSet>
-          <AssociationSet Name="FK__Menu__dolce__33D4B598" Association="Self.FK__Menu__dolce__33D4B598">
+          <AssociationSet Name="FK__Menu__dolce__2E1BDC42" Association="Self.FK__Menu__dolce__2E1BDC42">
             <End Role="Dolce" EntitySet="Dolce" />
             <End Role="Menu" EntitySet="Menu" />
           </AssociationSet>
-          <AssociationSet Name="FK__Menu__primo__30F848ED" Association="Self.FK__Menu__primo__30F848ED">
+          <AssociationSet Name="FK__Menu__primo__2B3F6F97" Association="Self.FK__Menu__primo__2B3F6F97">
             <End Role="Primo" EntitySet="Primo" />
             <End Role="Menu" EntitySet="Menu" />
           </AssociationSet>
-          <AssociationSet Name="FK__Menu__secondo__31EC6D26" Association="Self.FK__Menu__secondo__31EC6D26">
+          <AssociationSet Name="FK__Menu__secondo__2C3393D0" Association="Self.FK__Menu__secondo__2C3393D0">
             <End Role="Secondo" EntitySet="Secondo" />
             <End Role="Menu" EntitySet="Menu" />
           </AssociationSet>
@@ -253,13 +245,12 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="RistoranteModelStoreContainer" CdmEntityContainer="RistoranteEntities">
+        <EntityContainerMapping StorageEntityContainer="RistoranteModelStoreContainer" CdmEntityContainer="RistoranteEntities1">
           <EntitySetMapping Name="Contorno">
             <EntityTypeMapping TypeName="RistoranteModel.Contorno">
               <MappingFragment StoreEntitySet="Contorno">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nome" ColumnName="nome" />
-                <ScalarProperty Name="descrizione" ColumnName="descrizione" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -268,7 +259,6 @@
               <MappingFragment StoreEntitySet="Dolce">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nome" ColumnName="nome" />
-                <ScalarProperty Name="descrizione" ColumnName="descrizione" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -290,7 +280,6 @@
               <MappingFragment StoreEntitySet="Primo">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nome" ColumnName="nome" />
-                <ScalarProperty Name="descrizione" ColumnName="descrizione" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -299,7 +288,6 @@
               <MappingFragment StoreEntitySet="Secondo">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nome" ColumnName="nome" />
-                <ScalarProperty Name="descrizione" ColumnName="descrizione" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

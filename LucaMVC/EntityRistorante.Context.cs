@@ -13,10 +13,10 @@ namespace LucaMVC
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class RistoranteEntities : DbContext
+    public partial class RistoranteEntities1 : DbContext
     {
-        public RistoranteEntities()
-            : base("name=RistoranteEntities")
+        public RistoranteEntities1()
+            : base("name=RistoranteEntities1")
         {
         }
     

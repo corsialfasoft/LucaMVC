@@ -6,40 +6,61 @@ using DataAccessObject;
 
 namespace DataTransferObjects {
 
-	public class DTPiatto {
-		private TipoPiatto _type;
-		private string _nomePiatto;
-		private string _descrizione;
-
-		public TipoPiatto Type {
-			get { return _type; }
+	public class DTPrimo{
+		private string _nomePrimo;
+		
+		public string NomePrimo {
+			get { return _nomePrimo; }
 		}
 
-		public string NomePiatto {
-			get { return _nomePiatto; }
+		public DTPrimo(string nome) {
+			_nomePrimo = nome;
+		}   //Costruttore
+	}
+
+	public class DTSecondo {
+		private string _nomeSecondo;
+
+		public string NomeSecondo {
+			get { return _nomeSecondo; }
 		}
 
-		public string Descrizione {
-			get { return _descrizione; }
+		public DTSecondo(string nome) {
+			_nomeSecondo = nome;
+		}   //Costruttore
+	}
+
+	public class DTContorno {
+		private string _nomeContorno;
+
+		public string NomeContorno {
+			get { return _nomeContorno; }
 		}
 
-		public DTPiatto ( int tipoPiatto, string descr ) {
-			if (tipoPiatto >= 1 && tipoPiatto <= 4) {
-				_type = (TipoPiatto)tipoPiatto;
-				_descrizione = descr;
-			} else {
-				throw new Exception("Tipo piatto non valido! (deve essere un valore compreso tra 1 e 4)");
-			}
+		public DTContorno(string nome) {
+			_nomeContorno = nome;
+		}   //Costruttore
+	}
+
+	public class DTDolce {
+		private string _nomeDolce;
+
+		public string NomeDolce {
+			get { return _nomeDolce; }
+		}
+
+		public DTDolce(string nome) {
+			_nomeDolce = nome;
 		}   //Costruttore
 	}
 
 	public class DTMenu {
 		private DateTime _dataMenu;
 		private TipoPasto _tipoPasto;   //Pranzo o cena
-		private List<DTPiatto> _primo = new List<DTPiatto>();
-		private List<DTPiatto> _secondo = new List<DTPiatto>();
-		private List<DTPiatto> _contorno = new List<DTPiatto>();
-		private List<DTPiatto> _dolce = new List<DTPiatto>();
+		private List<DTPrimo> _primo = new List<DTPrimo>();
+		private List<DTSecondo> _secondo = new List<DTSecondo>();
+		private List<DTContorno> _contorno = new List<DTContorno>();
+		private List<DTDolce> _dolce = new List<DTDolce>();
 
 		public DateTime DataMenu {
 			get { return _dataMenu; }
@@ -49,24 +70,24 @@ namespace DataTransferObjects {
 			get { return _tipoPasto; }
 		}
 
-		public List<DTPiatto> Primo {
+		public List<DTPrimo> Primo {
 			get { return _primo; }
 		}
 
-		public List<DTPiatto> Secondo {
+		public List<DTSecondo> Secondo {
 			get { return _secondo; }
 		}
 
-		public List<DTPiatto> Contorno {
+		public List<DTContorno> Contorno {
 			get { return _contorno; }
 		}
 
-		public List<DTPiatto> Dolce {
+		public List<DTDolce> Dolce {
 			get { return _dolce; }
 		}
 
 
-		public DTMenu(DateTime d, int tipoPasto, List<DTPiatto> primo, List<DTPiatto> secondo, List<DTPiatto> contorno, List<DTPiatto> dolce) {
+		public DTMenu(DateTime d, int tipoPasto, List<DTPrimo> primo, List<DTSecondo> secondo, List<DTContorno> contorno, List<DTDolce> dolce) {
 			try {
 				if (tipoPasto == 0 || tipoPasto == 1) {
 					_tipoPasto = (TipoPasto)tipoPasto;
@@ -75,10 +96,10 @@ namespace DataTransferObjects {
 				}
 
 				if (primo != null && secondo != null && contorno != null && dolce != null) {
-					InserisciLista(_primo, primo);
-					InserisciLista(_secondo, secondo);
-					InserisciLista(_contorno, contorno);
-					InserisciLista(_dolce, dolce);
+					InserisciLista<DTPrimo>(_primo, primo);
+					InserisciLista<DTSecondo>(_secondo, secondo);
+					InserisciLista<DTContorno>(_contorno, contorno);
+					InserisciLista<DTDolce>(_dolce, dolce);
 				} else {
 					throw new Exception("Inserimento del Piatto errata! (è null)");
 				}
@@ -88,8 +109,8 @@ namespace DataTransferObjects {
 			}
 		}   //Costruttore
 
-		private void InserisciLista(List<DTPiatto> lista1, List<DTPiatto> lista2) {
-			foreach (DTPiatto p1 in lista2) {
+		private void InserisciLista<T>(List<T> lista1, List<T> lista2) {
+			foreach (T p1 in lista2) {
 				lista1.Add(p1);
 			}
 		}

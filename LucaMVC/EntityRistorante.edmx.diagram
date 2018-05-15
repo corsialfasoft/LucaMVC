@@ -4,16 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="22e959a9d7ce467d9886ca31e85c0226" Name="Diagram1">
-        <EntityTypeShape EntityType="RistoranteModel.Contorno" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="RistoranteModel.Dolce" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+      <Diagram DiagramId="cf41d6854a8143e0871e77aa1060772c" Name="Diagram1">
+        <EntityTypeShape EntityType="RistoranteModel.Contorno" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RistoranteModel.Dolce" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="RistoranteModel.Menu" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="RistoranteModel.Primo" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="RistoranteModel.Secondo" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
-        <AssociationConnector Association="RistoranteModel.FK__Menu__contorno__32E0915F" ManuallyRouted="false" />
-        <AssociationConnector Association="RistoranteModel.FK__Menu__dolce__33D4B598" ManuallyRouted="false" />
-        <AssociationConnector Association="RistoranteModel.FK__Menu__primo__30F848ED" ManuallyRouted="false" />
-        <AssociationConnector Association="RistoranteModel.FK__Menu__secondo__31EC6D26" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="RistoranteModel.Primo" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RistoranteModel.Secondo" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <AssociationConnector Association="RistoranteModel.FK__Menu__contorno__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="RistoranteModel.FK__Menu__dolce__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="RistoranteModel.FK__Menu__primo__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="RistoranteModel.FK__Menu__secondo__2C3393D0" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

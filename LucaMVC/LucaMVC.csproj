@@ -194,8 +194,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="EntityRistorante.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>EntityRistorante.Context.cs</LastGenOutput>
       <DependentUpon>EntityRistorante.edmx</DependentUpon>
+      <LastGenOutput>EntityRistorante.Context.cs</LastGenOutput>
     </Content>
     <Content Include="EntityRistorante.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

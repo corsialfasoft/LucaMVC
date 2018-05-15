@@ -3,26 +3,22 @@ use Ristorante;
 
 create table Primo(
 	id int identity (1,1) not null primary key,
-	nome nvarchar (20) not null,
-	descrizione nvarchar (200)
+	nome nvarchar (20) not null
 );
 
 create table Secondo(
 	id int identity (1,1) not null primary key,
-	nome nvarchar (20) not null,
-	descrizione nvarchar (200)
+	nome nvarchar (20) not null
 );
 
 create table Contorno(
 	id int identity (1,1) not null primary key,
-	nome nvarchar (20) not null,
-	descrizione nvarchar (200)
+	nome nvarchar (20) not null
 );
 
 create table Dolce(
 	id int identity (1,1) not null primary key,
-	nome nvarchar (20) not null,
-	descrizione nvarchar (200)
+	nome nvarchar (20) not null
 );
 
 create table Menu(
