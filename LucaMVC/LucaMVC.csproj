@@ -187,7 +187,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Pasto.cshtml" />
+    <Content Include="Views\Home\Menu.cshtml" />
     <Content Include="Views\Home\Giorno.cshtml" />
     <Content Include="Views\Home\Settimana.cshtml" />
     <Content Include="Views\Home\Dettaglio.cshtml" />

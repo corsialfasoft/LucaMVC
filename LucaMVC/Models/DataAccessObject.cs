@@ -33,12 +33,17 @@ namespace DataAccessObject {
 		}   //Costruttore
 	}
 
-	public class Pasto {
+	public class Menu {
+		private DateTime _dataMenu;
 		private TipoPasto _tipoPasto;	//Pranzo o cena
 		private List<Piatto> _primo = new List<Piatto>();
 		private List<Piatto> _secondo = new List<Piatto>();
 		private List<Piatto> _contorno = new List<Piatto>();
 		private List<Piatto> _dolce = new List<Piatto>();
+
+		public DateTime DataMenu {
+			get { return _dataMenu; }
+		}
 
 
 		public TipoPasto Tipologia_Pasto {
@@ -62,7 +67,7 @@ namespace DataAccessObject {
 		}
 
 
-		public Pasto(int tipoPasto, List<Piatto> primo, List<Piatto> secondo, List<Piatto> contorno, List<Piatto> dolce) {
+		public Menu (DateTime d, int tipoPasto, List<Piatto> primo, List<Piatto> secondo, List<Piatto> contorno, List<Piatto> dolce) {
 			try{
 				if ( tipoPasto == 0 || tipoPasto == 1 ) {
 					_tipoPasto = ( TipoPasto ) tipoPasto;
@@ -78,6 +83,7 @@ namespace DataAccessObject {
 				} else {
 					throw new Exception("Inserimento del Piatto errata! (è null)");
 				}
+				_dataMenu = d;
 			} catch (Exception e) {
 				throw e;
 			}
@@ -91,28 +97,28 @@ namespace DataAccessObject {
 	}
 
 	public class Giorno{
-		private DateTime _data;
+		private DateTime _dataG;
 		private Giornata _tGiorno;
-		private Pasto _pranzo;
-		private Pasto _cena;
+		private Menu _pranzo;
+		private Menu _cena;
 
-		public DateTime Data{
-			get { return _data; }
+		public DateTime DataG{
+			get { return _dataG; }
 		}
 
 		public Giornata TGiorno {
 			get { return _tGiorno; }
 		}
 
-		public Pasto Pranzo{
+		public Menu Pranzo {
 			get { return _pranzo; }
 		}
 
-		public Pasto Cena {
+		public Menu Cena {
 			get { return _cena; }
 		}
 
-		public Giorno ( DateTime d, int tGiorno , Pasto pranzo , Pasto cena ) {
+		public Giorno ( DateTime d, int tGiorno , Menu pranzo , Menu cena ) {
 			try{
 				if ( tGiorno >= 1 && tGiorno <= 7) {
 					_tGiorno = (Giornata) tGiorno ;
@@ -130,7 +136,7 @@ namespace DataAccessObject {
 				} else {
 					throw new Exception("Inserimento di pasto/i 'NULL' nella creazione del giorno");
 				}
-				_data = d;
+				_dataG = d;
 			} catch ( Exception e ) {
 				throw e;
 			}

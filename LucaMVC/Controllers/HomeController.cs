@@ -46,13 +46,13 @@ namespace LucaMVC.Controllers {
 			return View("Dettaglio");
 		}
 				
-		public ActionResult Pasto() {
+		public ActionResult Menu() {
 			ViewBag.Message = "Inserisci il menù pranzo/cena";
-			return View("Pasto");
+			return View("Menu");
 		}
 
 		[HttpPost]
-		public ActionResult Pasto(DateTime date, string pasto, string primo, string secondo, string contorno, string dolce) {
+		public ActionResult Menu(DateTime date, string pasto, string primo, string secondo, string contorno, string dolce) {
 			ViewBag.Message = $"Hai inserito il seguente menù";
 			ViewBag.data = date;
 			ViewBag.pasto = pasto;
@@ -62,7 +62,7 @@ namespace LucaMVC.Controllers {
 			ViewBag.dolce = dolce;
 			DomainModel dm = new DomainModel();
 			dm.AddPasto(date, pasto, primo, secondo, contorno, dolce);
-			return View("Pasto");
+			return View("Menu");
 		}
 				
 		public ActionResult Giorno() {
