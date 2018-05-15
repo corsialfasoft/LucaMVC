@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RistoranteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Contorno">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="descrizione" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Dolce">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="descrizione" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dataMenu" Type="date" Nullable="false" />
+          <Property Name="tipoMenu" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="primo" Type="int" />
+          <Property Name="secondo" Type="int" />
+          <Property Name="contorno" Type="int" />
+          <Property Name="dolce" Type="int" />
+        </EntityType>
+        <EntityType Name="Primo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="descrizione" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Secondo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="descrizione" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <Association Name="FK__Menu__contorno__32E0915F">
+          <End Role="Contorno" Type="Self.Contorno" Multiplicity="0..1" />
+          <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contorno">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Menu">
+              <PropertyRef Name="contorno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Menu__dolce__33D4B598">
+          <End Role="Dolce" Type="Self.Dolce" Multiplicity="0..1" />
+          <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dolce">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Menu">
+              <PropertyRef Name="dolce" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Menu__primo__30F848ED">
+          <End Role="Primo" Type="Self.Primo" Multiplicity="0..1" />
+          <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Primo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Menu">
+              <PropertyRef Name="primo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Menu__secondo__31EC6D26">
+          <End Role="Secondo" Type="Self.Secondo" Multiplicity="0..1" />
+          <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Secondo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Menu">
+              <PropertyRef Name="secondo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RistoranteModelStoreContainer">
+          <EntitySet Name="Contorno" EntityType="Self.Contorno" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dolce" EntityType="Self.Dolce" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Primo" EntityType="Self.Primo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Secondo" EntityType="Self.Secondo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Menu__contorno__32E0915F" Association="Self.FK__Menu__contorno__32E0915F">
+            <End Role="Contorno" EntitySet="Contorno" />
+            <End Role="Menu" EntitySet="Menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Menu__dolce__33D4B598" Association="Self.FK__Menu__dolce__33D4B598">
+            <End Role="Dolce" EntitySet="Dolce" />
+            <End Role="Menu" EntitySet="Menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Menu__primo__30F848ED" Association="Self.FK__Menu__primo__30F848ED">
+            <End Role="Primo" EntitySet="Primo" />
+            <End Role="Menu" EntitySet="Menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Menu__secondo__31EC6D26" Association="Self.FK__Menu__secondo__31EC6D26">
+            <End Role="Secondo" EntitySet="Secondo" />
+            <End Role="Menu" EntitySet="Menu" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RistoranteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Contorno">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="descrizione" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Menu" Relationship="Self.FK__Menu__contorno__32E0915F" FromRole="Contorno" ToRole="Menu" />
+        </EntityType>
+        <EntityType Name="Dolce">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="descrizione" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Menu" Relationship="Self.FK__Menu__dolce__33D4B598" FromRole="Dolce" ToRole="Menu" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dataMenu" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="tipoMenu" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="primo" Type="Int32" />
+          <Property Name="secondo" Type="Int32" />
+          <Property Name="contorno" Type="Int32" />
+          <Property Name="dolce" Type="Int32" />
+          <NavigationProperty Name="Contorno1" Relationship="Self.FK__Menu__contorno__32E0915F" FromRole="Menu" ToRole="Contorno" />
+          <NavigationProperty Name="Dolce1" Relationship="Self.FK__Menu__dolce__33D4B598" FromRole="Menu" ToRole="Dolce" />
+          <NavigationProperty Name="Primo1" Relationship="Self.FK__Menu__primo__30F848ED" FromRole="Menu" ToRole="Primo" />
+          <NavigationProperty Name="Secondo1" Relationship="Self.FK__Menu__secondo__31EC6D26" FromRole="Menu" ToRole="Secondo" />
+        </EntityType>
+        <EntityType Name="Primo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="descrizione" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Menu" Relationship="Self.FK__Menu__primo__30F848ED" FromRole="Primo" ToRole="Menu" />
+        </EntityType>
+        <EntityType Name="Secondo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="descrizione" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Menu" Relationship="Self.FK__Menu__secondo__31EC6D26" FromRole="Secondo" ToRole="Menu" />
+        </EntityType>
+        <Association Name="FK__Menu__contorno__32E0915F">
+          <End Role="Contorno" Type="Self.Contorno" Multiplicity="0..1" />
+          <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contorno">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Menu">
+              <PropertyRef Name="contorno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Menu__dolce__33D4B598">
+          <End Role="Dolce" Type="Self.Dolce" Multiplicity="0..1" />
+          <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dolce">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Menu">
+              <PropertyRef Name="dolce" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Menu__primo__30F848ED">
+          <End Role="Primo" Type="Self.Primo" Multiplicity="0..1" />
+          <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Primo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Menu">
+              <PropertyRef Name="primo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Menu__secondo__31EC6D26">
+          <End Role="Secondo" Type="Self.Secondo" Multiplicity="0..1" />
+          <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Secondo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Menu">
+              <PropertyRef Name="secondo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RistoranteEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Contorno" EntityType="Self.Contorno" />
+          <EntitySet Name="Dolce" EntityType="Self.Dolce" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" />
+          <EntitySet Name="Primo" EntityType="Self.Primo" />
+          <EntitySet Name="Secondo" EntityType="Self.Secondo" />
+          <AssociationSet Name="FK__Menu__contorno__32E0915F" Association="Self.FK__Menu__contorno__32E0915F">
+            <End Role="Contorno" EntitySet="Contorno" />
+            <End Role="Menu" EntitySet="Menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Menu__dolce__33D4B598" Association="Self.FK__Menu__dolce__33D4B598">
+            <End Role="Dolce" EntitySet="Dolce" />
+            <End Role="Menu" EntitySet="Menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Menu__primo__30F848ED" Association="Self.FK__Menu__primo__30F848ED">
+            <End Role="Primo" EntitySet="Primo" />
+            <End Role="Menu" EntitySet="Menu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Menu__secondo__31EC6D26" Association="Self.FK__Menu__secondo__31EC6D26">
+            <End Role="Secondo" EntitySet="Secondo" />
+            <End Role="Menu" EntitySet="Menu" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RistoranteModelStoreContainer" CdmEntityContainer="RistoranteEntities">
+          <EntitySetMapping Name="Contorno">
+            <EntityTypeMapping TypeName="RistoranteModel.Contorno">
+              <MappingFragment StoreEntitySet="Contorno">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="descrizione" ColumnName="descrizione" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dolce">
+            <EntityTypeMapping TypeName="RistoranteModel.Dolce">
+              <MappingFragment StoreEntitySet="Dolce">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="descrizione" ColumnName="descrizione" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menu">
+            <EntityTypeMapping TypeName="RistoranteModel.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="dataMenu" ColumnName="dataMenu" />
+                <ScalarProperty Name="tipoMenu" ColumnName="tipoMenu" />
+                <ScalarProperty Name="primo" ColumnName="primo" />
+                <ScalarProperty Name="secondo" ColumnName="secondo" />
+                <ScalarProperty Name="contorno" ColumnName="contorno" />
+                <ScalarProperty Name="dolce" ColumnName="dolce" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Primo">
+            <EntityTypeMapping TypeName="RistoranteModel.Primo">
+              <MappingFragment StoreEntitySet="Primo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="descrizione" ColumnName="descrizione" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Secondo">
+            <EntityTypeMapping TypeName="RistoranteModel.Secondo">
+              <MappingFragment StoreEntitySet="Secondo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="descrizione" ColumnName="descrizione" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Nessuno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
