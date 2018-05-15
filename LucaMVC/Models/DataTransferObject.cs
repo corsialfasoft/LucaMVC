@@ -86,7 +86,6 @@ namespace DataTransferObjects {
 			get { return _dolce; }
 		}
 
-
 		public DTMenu(DateTime d, int tipoPasto, List<DTPrimo> primo, List<DTSecondo> secondo, List<DTContorno> contorno, List<DTDolce> dolce) {
 			try {
 				if (tipoPasto == 0 || tipoPasto == 1) {
@@ -109,7 +108,7 @@ namespace DataTransferObjects {
 			}
 		}   //Costruttore
 
-		private void InserisciLista<T>(List<T> lista1, List<T> lista2) {
+		private void InserisciLista<T> (List<T> lista1, List<T> lista2) {
 			foreach (T p1 in lista2) {
 				lista1.Add(p1);
 			}

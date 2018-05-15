@@ -5,41 +5,55 @@ using System.Web;
 
 namespace DataAccessObject {
 
-	public enum TipoPiatto { primo = 1, secondo, contorno, dolce };
-
 	public enum Giornata { lunedì = 1, martedì, mercoledì, giovedì, venerdì, sabato, domenica };
 
 	public enum TipoPasto { pranzo, cena };
 
-	public class Piatto{
-		private int _id;
-		private TipoPiatto _type;
-		private string _nomePiatto;
-		private string _descrizione;
+	public class Primo {
+		private string _nomePrimo;
 
-		public int Id{
-			get { return _id; }
+		public string NomePrimo {
+			get { return _nomePrimo; }
 		}
 
-		public TipoPiatto Type{
-			get { return _type; }
+		public Primo(string nome) {
+			_nomePrimo = nome;
+		}   //Costruttore
+	}
+
+	public class Secondo {
+		private string _nomeSecondo;
+
+		public string NomeSecondo {
+			get { return _nomeSecondo; }
 		}
 
-		public string NomePiatto {
-			get { return _nomePiatto; }
+		public Secondo(string nome) {
+			_nomeSecondo = nome;
+		}   //Costruttore
+	}
+
+	public class Contorno {
+		private string _nomeContorno;
+
+		public string NomeContorno {
+			get { return _nomeContorno; }
 		}
 
-		public string Descrizione {
-			get { return _descrizione; }
+		public Contorno(string nome) {
+			_nomeContorno = nome;
+		}   //Costruttore
+	}
+
+	public class Dolce {
+		private string _nomeDolce;
+
+		public string NomeDolce {
+			get { return _nomeDolce; }
 		}
 
-		public Piatto(int tipoPiatto, string descr){
-			if (tipoPiatto >= 1 && tipoPiatto <= 4) {
-				_type = (TipoPiatto) tipoPiatto;
-				_descrizione = descr;
-			} else {
-				throw new Exception("Tipo piatto non valido! (deve essere un valore compreso tra 1 e 4)");
-			}
+		public Dolce(string nome) {
+			_nomeDolce = nome;
 		}   //Costruttore
 	}
 
@@ -47,10 +61,10 @@ namespace DataAccessObject {
 		private int _id;
 		private DateTime _dataMenu;
 		private TipoPasto _tipoPasto;	//Pranzo o cena
-		private List<Piatto> _primo = new List<Piatto>();
-		private List<Piatto> _secondo = new List<Piatto>();
-		private List<Piatto> _contorno = new List<Piatto>();
-		private List<Piatto> _dolce = new List<Piatto>();
+		private List<Primo> _primo = new List<Primo>();
+		private List<Secondo> _secondo = new List<Secondo>();
+		private List<Contorno> _contorno = new List<Contorno>();
+		private List<Dolce> _dolce = new List<Dolce>();
 
 		public int Id {
 			get { return _id; }
@@ -65,24 +79,24 @@ namespace DataAccessObject {
 			get { return _tipoPasto; }
 		}
 
-		public List<Piatto> Primo {
+		public List<Primo> Primo {
 			get { return _primo; }
 		}
 
-		public List<Piatto> Secondo {
+		public List<Secondo> Secondo {
 			get { return _secondo; }
 		}
 
-		public List<Piatto> Contorno {
+		public List<Contorno> Contorno {
 			get { return _contorno; }
 		}
 
-		public List<Piatto> Dolce {
+		public List<Dolce> Dolce {
 			get { return _dolce; }
 		}
 
 
-		public Menu (DateTime d, int tipoPasto, List<Piatto> primo, List<Piatto> secondo, List<Piatto> contorno, List<Piatto> dolce) {
+		public Menu (DateTime d, int tipoPasto, List<Primo> primo, List<Secondo> secondo, List<Contorno> contorno, List<Dolce> dolce) {
 			try{
 				if ( tipoPasto == 0 || tipoPasto == 1 ) {
 					_tipoPasto = ( TipoPasto ) tipoPasto;
@@ -91,10 +105,10 @@ namespace DataAccessObject {
 				}
 
 				if ( primo != null && secondo != null && contorno != null && dolce != null ) {
-					InserisciLista ( _primo , primo ) ;
-					InserisciLista ( _secondo , secondo ) ;
-					InserisciLista ( _contorno , contorno ) ;
-					InserisciLista ( _dolce , dolce ) ;
+					InserisciLista<Primo> ( _primo , primo ) ;
+					InserisciLista<Secondo> ( _secondo , secondo ) ;
+					InserisciLista<Contorno> ( _contorno , contorno ) ;
+					InserisciLista<Dolce> ( _dolce , dolce ) ;
 				} else {
 					throw new Exception("Inserimento del Piatto errata! (è null)");
 				}
@@ -104,8 +118,8 @@ namespace DataAccessObject {
 			}
 		}   //Costruttore
 
-		private void InserisciLista(List<Piatto> lista1, List<Piatto> lista2) {
-			foreach ( Piatto p1 in lista2 ) {
+		private void InserisciLista<T> (List<T> lista1, List<T> lista2) {
+			foreach ( T p1 in lista2 ) {
 				lista1.Add(p1);
 			}
 		}

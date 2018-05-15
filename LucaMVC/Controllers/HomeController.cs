@@ -55,14 +55,29 @@ namespace LucaMVC.Controllers {
 		[HttpPost]
 		public ActionResult Menu(DateTime date, string pasto, string primo, string secondo, string contorno, string dolce) {
 			ViewBag.Message = $"Hai inserito il seguente menù";
-			ViewBag.data = date;
-			ViewBag.pasto = pasto;
-			ViewBag.primo = primo ;
-			ViewBag.secondo = secondo;
-			ViewBag.contorno = contorno;
-			ViewBag.dolce = dolce;
+
+			//ViewBag.data = date;
+			//ViewBag.pasto = pasto;
+			//ViewBag.primo = primo ;
+			//ViewBag.secondo = secondo;
+			//ViewBag.contorno = contorno;
+			//ViewBag.dolce = dolce;
+
+			List<DTPrimo> listaPrimi =new List<DTPrimo> () { { new DTPrimo(primo) } };
+			List<DTSecondo> listaSecondi = new List<DTSecondo> () { { new DTSecondo(secondo) } };
+			List<DTContorno> listaContorni = new List<DTContorno>() { { new DTContorno(contorno) } };
+			List<DTDolce> listaDolci = new List<DTDolce>() { { new DTDolce(dolce) } };
+			DTMenu dtM;
+			if ( pasto == "pranzo" ) {
+				dtM = new DTMenu(date, 0, listaPrimi, listaSecondi, listaContorni, listaDolci);
+			} else if (pasto == "cena") {
+				dtM = new DTMenu(date, 1, listaPrimi, listaSecondi, listaContorni, listaDolci);
+			} else {
+				throw new Exception("Tipologia del menù (pranzo / cena) errata!");
+			}
 			DomainModel dm = new DomainModel();
-			dm.AddPasto(date, pasto, primo, secondo, contorno, dolce);
+			dm.AddMenu (dtM);
+			ViewBag.Menu = dtM;
 			return View("Menu");
 		}
 				

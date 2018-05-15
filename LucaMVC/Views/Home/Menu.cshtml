@@ -4,35 +4,39 @@
 <h2>@ViewBag.Title</h2>
 <h3>@ViewBag.Message</h3>
 
-@if (ViewBag.data != null && ViewBag.pasto != null && ViewBag.primo != null && ViewBag.secondo != null && ViewBag.contorno != null && ViewBag.dolce != null) {
-<ul class="list-group">    
+@*@if (ViewBag.data != null && ViewBag.pasto != null && ViewBag.primo != null && ViewBag.secondo != null && ViewBag.contorno != null && ViewBag.dolce != null) {*@
+@if (ViewBag.Menu != null) {
+<ul class="list-group">
     <li class="list-group-item">
-        <b>tipo (pranzo/cena): </b>       @ViewBag.pasto
+        <b>data: </b> @ViewBag.Menu.DataMenu.ToString("dd/MM/yyyy")
     </li>
     <li class="list-group-item">
-        <b>primo</b> @ViewBag.primo
+        <b>tipo (pranzo/cena): </b>       @ViewBag.Menu.Tipologia_Pasto
     </li>
     <li class="list-group-item">
-        <b>secondo</b>  @ViewBag.secondo
+        <b>primo</b> @ViewBag.Menu.Primo[0].NomePrimo
     </li>
     <li class="list-group-item">
-        <b>contorno</b> @ViewBag.contorno
+        <b>secondo</b>  @ViewBag.Menu.Secondo[0].NomeSecondo
     </li>
     <li class="list-group-item">
-        <b>dolce</b> @ViewBag.dolce
+        <b>contorno</b> @ViewBag.Menu.Contorno[0].NomeContorno
+    </li>
+    <li class="list-group-item">
+        <b>dolce</b> @ViewBag.Menu.Dolce[0].NomeDolce
     </li>
 </ul>
 }
 
 
-@using (Html.BeginForm("Menu", "Home", FormMethod.Post)) {
-<div>
-    <b>Data</b>      @Html.TextBox("date")<br /> <br />
-    <b>Tipo (pranzo/cena):</b>      @Html.TextBox("pasto")<br /> <br />
-    <b>Primo</b>      @Html.TextBox("primo") <br /> <br />
-    <b>Secondo</b> @Html.TextBox("secondo")<br /> <br />
-    <b>Contorno</b>      @Html.TextBox("contorno") <br /> <br />
-    <b>Dolce</b> @Html.TextBox("dolce")<br /> <br />
-    <input type="submit" value="Aggiungi" />
-</div>
-}
+    @using (Html.BeginForm("Menu", "Home", FormMethod.Post)) {
+        <div>
+            <b>Data</b>      @Html.TextBox("date")<br /> <br />
+            <b>Tipo (pranzo/cena):</b>      @Html.TextBox("pasto")<br /> <br />
+            <b>Primo</b>      @Html.TextBox("primo") <br /> <br />
+            <b>Secondo</b> @Html.TextBox("secondo")<br /> <br />
+            <b>Contorno</b>      @Html.TextBox("contorno") <br /> <br />
+            <b>Dolce</b> @Html.TextBox("dolce")<br /> <br />
+            <input type="submit" value="Aggiungi" />
+        </div>
+    }
