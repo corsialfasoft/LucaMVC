@@ -57,6 +57,7 @@ namespace DataTransferObjects {
 	public class DTMenu {
 		private DateTime _dataMenu;
 		private TipoPasto _tipoPasto;   //Pranzo o cena
+		
 		private List<DTPrimo> _primo = new List<DTPrimo>();
 		private List<DTSecondo> _secondo = new List<DTSecondo>();
 		private List<DTContorno> _contorno = new List<DTContorno>();
@@ -85,6 +86,8 @@ namespace DataTransferObjects {
 		public List<DTDolce> Dolce {
 			get { return _dolce; }
 		}
+
+		public DTMenu(){ }
 
 		public DTMenu(DateTime d, int tipoPasto, List<DTPrimo> primo, List<DTSecondo> secondo, List<DTContorno> contorno, List<DTDolce> dolce) {
 			try {
