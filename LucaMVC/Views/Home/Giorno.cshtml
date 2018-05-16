@@ -5,15 +5,29 @@
 <h3>@ViewBag.Message</h3>
 
 <ul class="list-group">
-    <li class="list-group-item">
+    @*<li class="list-group-item">
         <b>Data</b>       @ViewBag.data
-    </li>
+    </li>*@
+    @using (Html.BeginForm("Giorni", "Home", FormMethod.Post)) {
+        <div class="Conteiner">
+            Data (*)          <input type="date" name="dateTime" required />
+            <br><br>
+            Tipologia Menù [pranzo/cena] (*)
+                <select id="MType" name="tipoMenu">
+                    <option value="" selected="selected" />Seleziona tipo ore
+                    <option value="pranzo" />pranzo
+                    <option value="cena" />cena
+                </select>
+            <br><br>
+                <input type="submit" name="cerca" value="cerca" />
+        </div>
+    }
     <br />
     <br />
     <li class="list-group-item">
         <b>Pranzo</b>&nbsp;&nbsp;&nbsp;&nbsp;
 
-        <a class="btn btn-default" type="button" href="~/Home/Dettaglio?i=1">Dettaglio</a> 
+        <a class="btn btn-default" type="button" href="~/Home/Dettaglio?i=1&d=ViewBag.data">Dettaglio</a>
     </li>
     <br />
     <br />
